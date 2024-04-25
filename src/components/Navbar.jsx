@@ -2,14 +2,17 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
+    const navLinkClass = "text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium";
+
     const navLinks = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/update-profile">Update Profile</NavLink></li>
-        <li><NavLink to="/contact">Contact</NavLink></li>
+        <li><NavLink className={navLinkClass} to="/">Home</NavLink></li>
+        <li><NavLink className={navLinkClass} to="/tourists-spots">All Tourists Spot</NavLink></li>
+        <li><NavLink className={navLinkClass} to="/add-tourists-spot">Add Tourists Spot</NavLink></li>
+        <li><NavLink className={navLinkClass} to="/my-list">My List</NavLink></li>
     </>
 
     return (
-        <div className="bg-base-100">
+        <div className="bg-indigo-600 text-white">
             <div className="navbar max-w-7xl mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -20,15 +23,16 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <Link className="btn btn-ghost text-xl">Southest Explorer</Link>
+                    <Link className="btn btn-ghost text-white font-bold text-lg">Southeast Explorer</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu gap-10 menu-horizontal px-1">
                         {navLinks}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
+                <div className="navbar-end gap-4">
+                    <Link to="/login" className="btn btn-primary text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium">Login</Link>
+                    <a className="btn btn-secondary">Register</a>
                 </div>
             </div>
         </div>
