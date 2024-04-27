@@ -1,6 +1,22 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
+import { toast } from "react-toastify";
+import { FaRegCircleUser } from "react-icons/fa6";
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => {
+                toast.success('Logged out success!');
+            })
+            .catch(error => {
+                toast.error(error.messagee);
+            })
+    }
 
     const navLinkClass = "text-white hover:bg-indigo-700 px-3 py-2 rounded-md text-sm font-medium";
 
@@ -31,8 +47,36 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-4">
-                    <Link to="/login" className="btn btn-primary ">Login</Link>
-                    <a className="btn btn-secondary">Register</a>
+                    {
+                        user ?
+                            <div className="flex gap-2 items-center">
+                                <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar !flex tooltip tooltip-bottom" data-tip={user.displayName ?? 'User name not set'}>
+                                        <div className="w-10">
+                                            {
+                                                user.photoURL ?
+                                                    <img className="rounded-full" src={user.photoURL} />
+                                                    :
+                                                    <FaRegCircleUser className="w-10 text-blue-600 h-10 tooltip tooltip-bottom" />
+                                            }
+                                        </div>
+                                    </div>
+                                    <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 text-black rounded-box w-52">
+                                        <li>
+                                            <Link to="/change-password" className="">Change Password</Link>
+                                        </li>
+                                        <li>
+                                            <button onClick={handleSignOut} className="">Sign Out</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            :
+                            <div className="flex gap-3">
+                                <Link to="/login" className="btn btn-primary ">Login</Link>
+                                <Link to="/register" className="btn btn-secondary">Register</Link>
+                            </div>
+                    }
                 </div>
             </div>
         </div>
