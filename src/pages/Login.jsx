@@ -1,5 +1,10 @@
+import { useContext } from "react";
+import { SiteDetailsContext } from "../providers/SiteDetailsProvider";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
+
+    const { siteName } = useContext(SiteDetailsContext);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -32,6 +37,9 @@ const Login = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Login - {siteName}</title>
+            </Helmet>
             <div className="flex items-center justify-center my-16 bg-white rounded-2xl py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
                     <div>
