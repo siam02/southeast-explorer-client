@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Helmet } from "react-helmet";
 import { SiteDetailsContext } from "../providers/SiteDetailsProvider";
+import Swal from 'sweetalert2'
+import { toast } from "react-toastify";
 
 const AddTouristsSpot = () => {
 
@@ -33,9 +35,29 @@ const AddTouristsSpot = () => {
 
         console.log(newTouristsSpot);
 
-        
-
-        setAddText("Add");
+        fetch('http://localhost:5000/tourists-spot', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newTouristsSpot)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setAddText("Add");
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'New Tourists Spot Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
+            .catch(error => {
+                toast.error(error);
+            })
 
 
     }
