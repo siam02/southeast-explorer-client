@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import MyList from "../pages/MyList";
 import PrivateRoutes from "./PrivateRoutes";
+import AddTouristsSpot from "../pages/AddTouristsSpot";
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path:'/my-list',
                 element:<PrivateRoutes><MyList></MyList></PrivateRoutes>
+            },
+            {
+                path:'/add-tourists-spot',
+                element:<PrivateRoutes><AddTouristsSpot></AddTouristsSpot></PrivateRoutes>
             }
         ]
     }
