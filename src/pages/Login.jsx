@@ -1,46 +1,51 @@
 import { useContext, useState } from "react";
 import { SiteDetailsContext } from "../providers/SiteDetailsProvider";
 import { Helmet } from "react-helmet";
-import { useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
 
     const { signIn, user, signInWithGoogle, signInWithGitHub } = useContext(AuthContext);
+    const [error, setError] = useState(null);
     const { siteName } = useContext(SiteDetailsContext);
     const [loginText, setLoginText] = useState('Login');
     const [loginWithGoogleText, setloginWithGoogleText] = useState('Google');
     const [loginWithGithubText, setLoginWithGithubText] = useState('GitHub');
     const navigate = useNavigate();
 
+    if (user) {
+        return <Navigate to={location?.state ? location.state : '/'}></Navigate>;
+    }
+
     const handleLogin = e => {
         e.preventDefault();
 
-        // setLoginText(
-        //     <span className="loading loading-spinner loading-xs"></span>
-        // )
-        // const form = new FormData(e.currentTarget);
-        // const email = form.get('email');
-        // const password = form.get('password');
+        setLoginText(
+            <span className="loading loading-spinner loading-xs"></span>
+        )
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email');
+        const password = form.get('password');
 
-        // if (email === '') {
-        //     setError('Please enter your email')
-        // }
+        if (email === '') {
+            setError('Please enter your email')
+        }
 
-        // if (password === '') {
-        //     setError('Please enter your password')
-        // }
+        if (password === '') {
+            setError('Please enter your password')
+        }
 
-        // signIn(email, password)
-        //     .then(() => {
-        //         toast.success("Logged in success");
-        //         navigate(location?.state ? location.state : '/');
-        //     })
-        //     .catch(error => {
-        //         toast.error(error.message);
-        //         setLoginText('Login');
-        //     })
+        signIn(email, password)
+            .then(() => {
+                toast.success("Logged in success");
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => {
+                toast.error(error.message);
+                setLoginText('Login');
+            })
     }
 
     const handleLoginWithGoogle = () => {
@@ -49,14 +54,14 @@ const Login = () => {
         )
 
         signInWithGoogle()
-        .then(() => {
-            toast.success("Logged in success");
-            navigate(location?.state ? location.state : '/');
-        })
-        .catch(error => {
-            toast.error(error.message);
-            setloginWithGoogleText('Login with Google');
-        })
+            .then(() => {
+                toast.success("Logged in success");
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => {
+                toast.error(error.message);
+                setloginWithGoogleText('Google');
+            })
     }
 
     const handleLoginWithGitHub = () => {
@@ -65,14 +70,14 @@ const Login = () => {
         )
 
         signInWithGitHub()
-        .then(() => {
-            toast.success("Logged in success");
-            navigate(location?.state ? location.state : '/');
-        })
-        .catch(error => {
-            toast.error(error.message);
-            setLoginWithGithubText('Login with GitHub');
-        })
+            .then(() => {
+                toast.success("Logged in success");
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => {
+                toast.error(error.message);
+                setLoginWithGithubText('GitHub');
+            })
     }
 
     return (
@@ -88,6 +93,15 @@ const Login = () => {
                         </h2>
                     </div>
                     <form className="mt-8 space-y-6" onSubmit={handleLogin}>
+                        {
+                            error ?
+                                <div role="alert" className="alert p-2 rounded-lg alert-error">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <span><strong>Error!</strong> {error}</span>
+                                </div>
+                                :
+                                ''
+                        }
                         <input type="hidden" name="remember" defaultValue="true" />
                         <div className="rounded-md shadow-sm -space-y-px">
                             <div>
@@ -198,12 +212,12 @@ const Login = () => {
                         <span className="text-sm text-gray-600">
                             Don&apos;t have an account?
                         </span>{" "}
-                        <a
-                            href="#"
+                        <Link
+                            to="/register"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                         >
                             Register here
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
