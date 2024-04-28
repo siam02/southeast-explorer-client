@@ -22,7 +22,7 @@ const Navbar = () => {
 
     const navLinks = <>
         <li><NavLink className={navLinkClass} to="/">Home</NavLink></li>
-        <li><NavLink className={navLinkClass} to="/tourists-spots">All Tourists Spot</NavLink></li>
+        <li><NavLink className={navLinkClass} to="/all-tourists-spot">All Tourists Spot</NavLink></li>
         <li><NavLink className={navLinkClass} to="/add-tourists-spot">Add Tourists Spot</NavLink></li>
         <li><NavLink className={navLinkClass} to="/my-list">My List</NavLink></li>
     </>
@@ -39,7 +39,7 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <Link className="btn btn-ghost text-white font-bold text-lg">Southeast Explorer</Link>
+                    <Link to='/' className="btn btn-ghost text-white font-bold text-lg">Southeast Explorer</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu gap-10 menu-horizontal px-1">

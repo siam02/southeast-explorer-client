@@ -6,11 +6,14 @@ import Register from "../pages/Register";
 import MyList from "../pages/MyList";
 import PrivateRoutes from "./PrivateRoutes";
 import AddTouristsSpot from "../pages/AddTouristsSpot";
+import AllTouristsSpot from "../pages/AllTouristsSpot";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element:<Root></Root>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -31,6 +34,11 @@ const router = createBrowserRouter([
             {
                 path:'/add-tourists-spot',
                 element:<PrivateRoutes><AddTouristsSpot></AddTouristsSpot></PrivateRoutes>
+            },
+            {
+                path:'/all-tourists-spot',
+                element:<AllTouristsSpot></AllTouristsSpot>,
+                loader: () => fetch('http://localhost:5000/tourists-spot')
             }
         ]
     }

@@ -24,7 +24,7 @@ const AddTouristsSpot = () => {
         const country_Name = form.country_Name.value;
         const location = form.location.value;
         const short_description = form.short_description.value;
-        const average_cost = form.average_cost.value;
+        const average_cost = parseInt(form.average_cost.value);
         const seasonality = form.seasonality.value;
         const travel_time = form.travel_time.value;
         const totalVisitorsPerYear = form.totalVisitorsPerYear.value;
@@ -53,6 +53,8 @@ const AddTouristsSpot = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
+
+                    form.reset();
                 }
             })
             .catch(error => {
@@ -136,7 +138,7 @@ const AddTouristsSpot = () => {
                         <input
                             id="average_cost"
                             name="average_cost"
-                            type="text"
+                            type="number"
                             required
                             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
                         />
