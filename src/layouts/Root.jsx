@@ -8,7 +8,7 @@ const Root = () => {
     return (
         <div className="">
             <Navbar></Navbar>
-            <main className="max-w-7xl mx-auto">
+            <main className="max-w-7xl min-h-screen mx-auto">
                 <Outlet></Outlet>
                 <ToastContainer />
             </main>

@@ -63,7 +63,7 @@ const Navbar = () => {
                                     </div>
                                     <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 text-black rounded-box w-52">
                                         <li>
-                                            <Link to="/change-password" className="">Change Password</Link>
+                                            <Link to="/countries" className="">All Countries</Link>
                                         </li>
                                         <li>
                                             <button onClick={handleSignOut} className="">Sign Out</button>
