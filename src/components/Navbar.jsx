@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { FaRegCircleUser } from "react-icons/fa6";
+import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
 
@@ -51,13 +52,13 @@ const Navbar = () => {
                         user ?
                             <div className="flex gap-2 items-center">
                                 <div className="dropdown dropdown-end">
-                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar !flex tooltip tooltip-bottom" data-tip={user.displayName ?? 'User name not set'}>
+                                    <div tabIndex={0} role="button" className="btn rToolTip btn-ghost btn-circle avatar !flex">
                                         <div className="w-10">
                                             {
                                                 user.photoURL ?
                                                     <img className="rounded-full" src={user.photoURL} />
                                                     :
-                                                    <FaRegCircleUser className="w-10 text-blue-600 h-10 tooltip tooltip-bottom" />
+                                                    <FaRegCircleUser className="w-10 text-blue-600 h-10" />
                                             }
                                         </div>
                                     </div>
@@ -70,6 +71,9 @@ const Navbar = () => {
                                         </li>
                                     </ul>
                                 </div>
+                                <Tooltip anchorSelect=".rToolTip" place="bottom">
+                                    {user.displayName ?? 'User name not set'}
+                                </Tooltip>
                             </div>
                             :
                             <div className="flex gap-3">
