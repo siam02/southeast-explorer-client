@@ -20,7 +20,7 @@ const Home = () => {
             <div className="hero my-28">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="lg:w-1/2 w-full">
-                        <h1 className="text-5xl font-bold">Explore <span className="text-red-600"><Typewriter words={['Southeast Asia', 'Bangladesh', 'Thailand', 'Malaysia', 'Vietnam', 'Cambodia']} /></span></h1>
+                        <h1 className="text-5xl font-bold">Explore <span className="text-red-600"><Typewriter words={['Southeast Asia', 'Bangladesh', 'Thailand', 'Malaysia', 'Vietnam', 'Cambodia']} loop={0} /></span></h1>
                         <p className="py-6">Embark on an unforgettable journey through the vibrant cultures and breathtaking landscapes of Southeast Asia.</p>
                         <button className="btn btn-primary">Get Started</button>
                     </div>
