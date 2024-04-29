@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { SiteDetailsContext } from '../providers/SiteDetailsProvider';
 
 const Countries = () => {
     const countries = useLoaderData();
 
     const [allCountries, setAllCountries] = useState(countries);
+    const { siteName } = useContext(SiteDetailsContext);
 
     const handleDelete = id => {
         Swal.fire({
@@ -44,6 +47,9 @@ const Countries = () => {
 
     return (
         <div className="max-w-4xl mx-auto px-4 py-8">
+            <Helmet>
+                <title>All Countries - {siteName}</title>
+            </Helmet>
             <div className='flex justify-between flex-col lg:flex-row'>
                 <h2 className="text-3xl font-bold mb-4">All Countries</h2>
                 <Link to="/add-country" className='btn bg-indigo-600 text-white hover:bg-indigo-700 border-0 btn-success'>Add Country</Link>
