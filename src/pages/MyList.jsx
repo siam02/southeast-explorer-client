@@ -79,7 +79,7 @@ const MyList = () => {
                                 <td className="py-2">{spot.location}</td>
                                 <td className="py-2">${spot.average_cost}</td>
                                 <td className="py-2">
-                                    <Link to={`/update/${spot._id}`} className="text-indigo-600 hover:text-indigo-700 mr-2">Update</Link>
+                                    <Link to={`/update-tourists-spot/${spot._id}`} className="text-indigo-600 hover:text-indigo-700 mr-2">Update</Link>
                                     <button onClick={() => handleDelete(spot._id)} className="text-red-600 hover:text-red-700">Delete</button>
                                 </td>
                             </tr>
