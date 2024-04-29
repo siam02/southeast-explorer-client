@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { SiteDetailsContext } from "../providers/SiteDetailsProvider";
 import TouristsSpotCard from "../components/TouristsSpotCard";
 import { toast } from "react-toastify";
@@ -14,7 +14,6 @@ const AllTouristsSpot = () => {
 
 
     const handleSort = (sort) => {
-        console.log(sort);
         fetch(`http://localhost:5000/tourists-spot?sortOrder=${sort}`)
         .then(res => res.json())
         .then(data => {
