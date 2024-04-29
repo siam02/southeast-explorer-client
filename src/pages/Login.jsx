@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { SiteDetailsContext } from "../providers/SiteDetailsProvider";
 import { Helmet } from "react-helmet";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
 
@@ -13,6 +13,7 @@ const Login = () => {
     const [loginText, setLoginText] = useState('Login');
     const [loginWithGoogleText, setloginWithGoogleText] = useState('Google');
     const [loginWithGithubText, setLoginWithGithubText] = useState('GitHub');
+    const location = useLocation();
     const navigate = useNavigate();
 
     if (user) {
