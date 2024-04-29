@@ -13,6 +13,8 @@ const UpdateTouristsSpot = () => {
     const spot = useLoaderData();
     const { image, tourists_spot_name, country_Name, location, short_description, average_cost, seasonality, travel_time, totalVisitorsPerYear } = spot;
 
+    const [spotImage, setSpotImage] = useState(image);
+
     const handleSubmit = e => {
         e.preventDefault();
 
@@ -43,6 +45,7 @@ const UpdateTouristsSpot = () => {
             .then(res => res.json())
             .then(data => {
                 setUpdateText("Update");
+                setSpotImage(image);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
@@ -65,6 +68,9 @@ const UpdateTouristsSpot = () => {
                 <title>Update Tourists Spot - {tourists_spot_name} - {siteName}</title>
             </Helmet>
             <h2 className="text-3xl font-bold mb-4">Update Tourists Spot: {tourists_spot_name}</h2>
+            <div className="mb-4">
+                <img src={spotImage} alt="" className="w-full" />
+            </div>
             <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
