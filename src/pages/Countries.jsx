@@ -60,15 +60,15 @@ const Countries = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {allCountries.map(country => (
-                                <tr key={country.id}>
+                            {allCountries.map(country => 
+                                <tr key={country._id}>
                                     <td className="py-2">{country.country_Name}</td>
                                     <td className="py-2 text-center">
                                         <Link to={`/update-country/${country._id}`} className="text-indigo-600 hover:text-indigo-700 mr-2">Update</Link>
                                         <button onClick={() => handleDelete(country._id)} className="text-red-600 hover:text-red-700">Delete</button>
                                     </td>
                                 </tr>
-                            ))}
+                            )}
                         </tbody>
                     </table>
                 </div>

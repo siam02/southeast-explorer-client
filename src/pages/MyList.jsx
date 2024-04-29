@@ -78,8 +78,8 @@ const MyList = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {myList.map(spot => (
-                                <tr key={spot.id}>
+                            {myList.map(spot => 
+                                <tr key={spot._id}>
                                     <td className="py-2">{spot.tourists_spot_name}</td>
                                     <td className="py-2">{spot.location}</td>
                                     <td className="py-2">${spot.average_cost}</td>
@@ -88,7 +88,7 @@ const MyList = () => {
                                         <button onClick={() => handleDelete(spot._id)} className="text-red-600 hover:text-red-700">Delete</button>
                                     </td>
                                 </tr>
-                            ))}
+                            )}
                         </tbody>
                     </table>
                 </div>
