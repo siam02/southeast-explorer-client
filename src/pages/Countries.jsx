@@ -15,25 +15,27 @@ const Countries = () => {
             {countries.length === 0 ? (
                 <p className="text-gray-600">No countries found.</p>
             ) : (
-                <table className="w-full">
-                    <thead>
-                        <tr>
-                            <th className="text-left py-2">Country Name</th>
-                            <th className="text-left py-2">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {countries.map(country => (
-                            <tr key={country.id}>
-                                <td className="py-2">{country.countryName}</td>
-                                <td className="py-2">
-                                    <Link to={`/update-country/${country._id}`} className="text-indigo-600 hover:text-indigo-700 mr-2">Update</Link>
-                                    <button onClick={() => handleDelete(country._id)} className="text-red-600 hover:text-red-700">Delete</button>
-                                </td>
+                <div className="overflow-x-auto mt-4">
+                    <table className="table table-zebra">
+                        <thead className="bg-white">
+                            <tr className="text-gray-900" >
+                                <th className="text-left py-2">Country Name</th>
+                                <th className="text-center py-2">Actions</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {countries.map(country => (
+                                <tr key={country.id}>
+                                    <td className="py-2">{country.country_Name}</td>
+                                    <td className="py-2 text-center">
+                                        <Link to={`/update-country/${country._id}`} className="text-indigo-600 hover:text-indigo-700 mr-2">Update</Link>
+                                        <button onClick={() => handleDelete(country._id)} className="text-red-600 hover:text-red-700">Delete</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             )}
         </div>
 

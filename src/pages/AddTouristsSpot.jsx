@@ -118,7 +118,7 @@ const AddTouristsSpot = () => {
                             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
                         />
                     </div>
-                    <div>
+                    <div className="md:col-span-2">
                         <label htmlFor="short_description" className="block text-sm font-medium text-gray-700">
                             Short Description
                         </label>
