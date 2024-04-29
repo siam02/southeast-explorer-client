@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Helmet } from "react-helmet";
 import { SiteDetailsContext } from "../providers/SiteDetailsProvider";
@@ -10,6 +10,7 @@ const AddTouristsSpot = () => {
     const [addText, setAddText] = useState('Add');
     const { siteName } = useContext(SiteDetailsContext);
     const { user } = useContext(AuthContext);
+    const [countries, setCountries] = useState([]);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -62,6 +63,18 @@ const AddTouristsSpot = () => {
 
     }
 
+    useEffect(() => {
+        fetch(`http://localhost:5000/country`)
+            .then(res => res.json())
+            .then(data => {
+                setCountries(data);
+            })
+            .catch(error => {
+                console.log(error);
+                toast.error(error);
+            })
+    }, [])
+
     return (
         <div className="max-w-4xl mx-auto px-4 py-8">
             <Helmet>
@@ -98,13 +111,17 @@ const AddTouristsSpot = () => {
                         <label htmlFor="country_Name" className="block text-sm font-medium text-gray-700">
                             Country Name
                         </label>
-                        <input
+                        <select
                             id="country_Name"
                             name="country_Name"
                             type="text"
                             required
                             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-                        />
+                        >
+                            {
+                                countries.map(country => <option value={country.country_Name} key={country._id}>{ country.country_Name }</option>)
+                            }
+                        </select>
                     </div>
                     <div>
                         <label htmlFor="location" className="block text-sm font-medium text-gray-700">
