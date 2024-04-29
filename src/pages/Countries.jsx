@@ -1,10 +1,46 @@
+import { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Countries = () => {
     const countries = useLoaderData();
+
+    const [allCountries, setAllCountries] = useState(countries);
+
     const handleDelete = id => {
-        console.log(id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to delete this Country? You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+
+                fetch(`http://localhost:5000/country/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your choosen country has been deleted.',
+                                'success'
+                            )
+                            const remaining = allCountries.filter(country => country._id !== id);
+                            setAllCountries(remaining);
+                        }
+                    })
+
+            }
+        })
     }
+
+    
 
     return (
         <div className="max-w-4xl mx-auto px-4 py-8">
@@ -12,7 +48,7 @@ const Countries = () => {
                 <h2 className="text-3xl font-bold mb-4">All Countries</h2>
                 <Link to="/add-country" className='btn bg-indigo-600 text-white hover:bg-indigo-700 border-0 btn-success'>Add Country</Link>
             </div>
-            {countries.length === 0 ? (
+            {allCountries.length === 0 ? (
                 <p className="text-gray-600">No countries found.</p>
             ) : (
                 <div className="overflow-x-auto mt-4">
@@ -24,7 +60,7 @@ const Countries = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {countries.map(country => (
+                            {allCountries.map(country => (
                                 <tr key={country.id}>
                                     <td className="py-2">{country.country_Name}</td>
                                     <td className="py-2 text-center">
