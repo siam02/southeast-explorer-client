@@ -39,9 +39,14 @@ const CountryDetails = () => {
                     <h2 className="text-4xl font-bold">Tourists Spots in {country_Name}</h2>
                     <p className="max-w-3xl mt-4 mx-auto">Explore all tourists spots located in {country_Name} with stunning sceneries! Book and enjoy the awesome beauty of our world</p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {spots.map((spot) => <TouristsSpotCard key={spot._id} spot={spot} ></TouristsSpotCard>)}
-                </div>
+                {
+                    spots.length === 0 ?
+                        <p className="text-lg text-red-600">No Tourists Spots are available for this Country</p>
+                        :
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {spots.map((spot) => <TouristsSpotCard key={spot._id} spot={spot} ></TouristsSpotCard>)}
+                        </div>
+                }
             </div>
         </div>
     );
