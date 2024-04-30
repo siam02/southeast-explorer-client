@@ -21,7 +21,7 @@ const TouristsSpotDetails = () => {
             <div className="overflow-hidden">
                 <div className="flex gap-6 justify-between items-center flex-col md:flex-row mb-10">
                     <div className="md:text-left text-center">
-                        <h2 className="text-2xl mb-2 font-semibold">{spot.tourists_spot_name}</h2>
+                        <h1 className="text-2xl mb-2 font-semibold">{spot.tourists_spot_name}</h1>
                         <div className="flex flex-wrap md:justify-start justify-center items-center gap-2">
                             <FaLocationDot />
                             {spot.location}, {spot.country_Name},

@@ -63,7 +63,7 @@ const Footer = () => {
                                 Countries
                             </div>
                             {
-                                countries.map(country => <Link to={`/country/${country.country_Name}`} key={country._id} className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700"> { country.country_Name } </Link> )
+                                countries.map(country => <Link to={`/country/${country._id}`} key={country._id} className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700"> { country.country_Name } </Link> )
                             }
                         </div>
 
