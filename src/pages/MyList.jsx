@@ -13,7 +13,7 @@ const MyList = () => {
     const { siteName } = useContext(SiteDetailsContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tourists-spot?email=${user.email}`)
+        fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/tourists-spot?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyList(data);
@@ -37,7 +37,7 @@ const MyList = () => {
             if (result.isConfirmed) {
 
 
-                fetch(`http://localhost:5000/tourists-spot/${id}`, {
+                fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/tourists-spot/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

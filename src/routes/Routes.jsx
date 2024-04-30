@@ -24,7 +24,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element:<Home></Home>,
-                loader: () => fetch('http://localhost:5000/tourists-spot')
+                loader: () => fetch('https://southest-explorer-server-12zvd66g0.vercel.app/tourists-spot')
             },
             {
                 path:'/login',
@@ -45,17 +45,17 @@ const router = createBrowserRouter([
             {
                 path:'/all-tourists-spot',
                 element:<AllTouristsSpot></AllTouristsSpot>,
-                loader: () => fetch('http://localhost:5000/tourists-spot')
+                loader: () => fetch('https://southest-explorer-server-12zvd66g0.vercel.app/tourists-spot')
             },
             {
                 path:'/update-tourists-spot/:id',
                 element:<PrivateRoutes><UpdateTouristsSpot></UpdateTouristsSpot></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/tourists-spot/${params.id}`)
+                loader: ({params}) => fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/tourists-spot/${params.id}`)
             },
             {
                 path:'/countries',
                 element:<PrivateRoutes><Countries></Countries></PrivateRoutes>,
-                loader: () => fetch('http://localhost:5000/country')
+                loader: () => fetch('https://southest-explorer-server-12zvd66g0.vercel.app/country')
             },
             {
                 path:'/add-country',
@@ -64,17 +64,17 @@ const router = createBrowserRouter([
             {
                 path:'/update-country/:id',
                 element:<PrivateRoutes><UpdateCountry></UpdateCountry></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/country/${params.id}`)
+                loader: ({params}) => fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/country/${params.id}`)
             },
             {
                 path:'/tourists-spot/:id',
                 element:<PrivateRoutes><TouristsSpotDetails></TouristsSpotDetails></PrivateRoutes>,
-                loader: ({params}) => fetch(`http://localhost:5000/tourists-spot/${params.id}`)
+                loader: ({params}) => fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/tourists-spot/${params.id}`)
             },
             {
                 path:'/country/:id',
                 element:<CountryDetails></CountryDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/country/${params.id}`)
+                loader: ({params}) => fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/country/${params.id}`)
             }
         ]
     }

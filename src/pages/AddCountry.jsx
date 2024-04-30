@@ -23,7 +23,7 @@ const AddCountry = () => {
 
         const newCountry = { image, country_Name, short_description }
 
-        fetch('http://localhost:5000/country', {
+        fetch('https://southest-explorer-server-12zvd66g0.vercel.app/country', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

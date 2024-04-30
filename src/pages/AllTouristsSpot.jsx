@@ -14,7 +14,7 @@ const AllTouristsSpot = () => {
 
 
     const handleSort = (sort) => {
-        fetch(`http://localhost:5000/tourists-spot?sortOrder=${sort}`)
+        fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/tourists-spot?sortOrder=${sort}`)
         .then(res => res.json())
         .then(data => {
             console.log(data);

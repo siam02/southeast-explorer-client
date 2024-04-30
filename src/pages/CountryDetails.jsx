@@ -15,7 +15,7 @@ const CountryDetails = () => {
     const [spots, setSpots] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tourists-spot?country_Name=${country_Name}`)
+        fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/tourists-spot?country_Name=${country_Name}`)
             .then(res => res.json())
             .then(data => {
                 setSpots(data);
