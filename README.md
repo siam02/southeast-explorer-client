@@ -1,8 +1,25 @@
-# React + Vite
+# Southeast Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Southeast Explorer, your go-to platform for exploring the captivating beauty of Southeast Asia and beyond!
 
-Currently, two official plugins are available:
+## Live Site
+[https://southeast-explorer.web.app/](https://southeast-explorer.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- **Responsive Design**: Seamlessly browse on all devices - desktop, tablet, and mobile.
+- **Secure Authentication**: Utilize password and email-based authentication for login and registration.
+- **Social Login**: Sign in with Google or GitHub for added convenience.
+- **Private Routes**: Access private routes without being redirected to the login page upon reloading.
+- **Environment Variables**: Safeguard sensitive Firebase config keys and MongoDB credentials with environment variables.
+- **Dark/Light Theme Toggle**: Toggle between dark and light themes to suit your preference.
+- **Adventure Escapes**: Explore thrilling adventures and adrenaline-pumping activities with our curated selection of adventure escapes.
+- **Why Choose Us**: Discover why Southeast Explorer is your best choice for unforgettable journeys with expert guides, customized experiences, and top-notch safety measures.
+- **Tourist Spot Management**: Add, update, and delete tourist spots, with detailed information including image, name, location, cost, seasonality, and more.
+- **Sortable Tourist Spots**: Sort tourist spots based on average cost to find the perfect destination for your budget.
+- **My List**: View and manage your personal list of added tourist spots in a convenient tabular format.
+
+
+## Choosen Category
+
+Southeast Asia
