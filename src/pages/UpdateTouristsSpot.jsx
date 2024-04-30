@@ -37,7 +37,7 @@ const UpdateTouristsSpot = () => {
 
         const updateTouristsSpot = { image, tourists_spot_name, country_Name, location, short_description, average_cost, seasonality, travel_time, totalVisitorsPerYear }
 
-        fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/tourists-spot/${spot._id}`, {
+        fetch(`https://southest-explorer-server-opbmjysgv.vercel.app/tourists-spot/${spot._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -65,7 +65,7 @@ const UpdateTouristsSpot = () => {
     }
 
     useEffect(() => {
-        fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/country`)
+        fetch(`https://southest-explorer-server-opbmjysgv.vercel.app/country`)
             .then(res => res.json())
             .then(data => {
                 setCountries(data);

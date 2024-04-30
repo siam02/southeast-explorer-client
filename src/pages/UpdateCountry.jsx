@@ -26,7 +26,7 @@ const UpdateCountry = () => {
 
         const updateCountry = { image, country_Name, short_description }
 
-        fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/country/${country._id}`, {
+        fetch(`https://southest-explorer-server-opbmjysgv.vercel.app/country/${country._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

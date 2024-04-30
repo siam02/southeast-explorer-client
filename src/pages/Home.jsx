@@ -22,7 +22,7 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/country`)
+        fetch(`https://southest-explorer-server-opbmjysgv.vercel.app/country`)
             .then(res => res.json())
             .then(data => {
                 setCountries(data);

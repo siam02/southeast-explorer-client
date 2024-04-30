@@ -23,7 +23,7 @@ const Countries = () => {
             if (result.isConfirmed) {
 
 
-                fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/country/${id}`, {
+                fetch(`https://southest-explorer-server-opbmjysgv.vercel.app/country/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

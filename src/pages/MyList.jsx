@@ -14,7 +14,7 @@ const MyList = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/tourists-spot?email=${user.email}`)
+        fetch(`https://southest-explorer-server-opbmjysgv.vercel.app/tourists-spot?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyList(data);
@@ -39,7 +39,7 @@ const MyList = () => {
             if (result.isConfirmed) {
 
 
-                fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/tourists-spot/${id}`, {
+                fetch(`https://southest-explorer-server-opbmjysgv.vercel.app/tourists-spot/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
