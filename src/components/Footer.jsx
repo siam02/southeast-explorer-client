@@ -1,7 +1,27 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+
 const Footer = () => {
+
+    const [countries, setCountries] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/country`)
+            .then(res => res.json())
+            .then(data => {
+                setCountries(data);
+            })
+            .catch(error => {
+                console.log(error);
+                toast.error(error);
+            })
+    }, [])
+
+
     return (
         <div>
-            <footer className="bg-gray-800 md:p-10 p-4 sm:mt-10">
+            <footer className="bg-gray-800 md:p-10 p-5 sm:mt-10">
                 <div className="flex lg:flex-row flex-col  justify-between gap-12">
                     <div className="text-white">
                         <h2 className="text-3xl font-black">Southeast Explorer</h2>
@@ -42,30 +62,9 @@ const Footer = () => {
                             <div className="text-xs uppercase text-gray-400 font-bold mb-6">
                                 Countries
                             </div>
-                            <a
-                                href="#"
-                                className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700"
-                            >
-                                Southeast Asia
-                            </a>
-                            <a
-                                href="#"
-                                className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700"
-                            >
-                                Europe
-                            </a>
-                            <a
-                                href="#"
-                                className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700"
-                            >
-                                America
-                            </a>
-                            <a
-                                href="#"
-                                className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700"
-                            >
-                                Africa
-                            </a>
+                            {
+                                countries.map(country => <Link to={`/country/${country.country_Name}`} key={country._id} className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700"> { country.country_Name } </Link> )
+                            }
                         </div>
 
                         <div className="md:w-auto gap-3 w-full flex items-center flex-col">
