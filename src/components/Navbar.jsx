@@ -67,13 +67,16 @@ const Navbar = () => {
                                             <Link to="/countries" className="">All Countries</Link>
                                         </li>
                                         <li>
-                                            <button onClick={handleSignOut} className="">Sign Out</button>
+                                            <button onClick={handleSignOut} className="">Log Out</button>
                                         </li>
                                     </ul>
                                 </div>
                                 <Tooltip anchorSelect=".rToolTip" place="bottom">
                                     {user.displayName ?? 'User name not set'}
                                 </Tooltip>
+                                <div>
+                                    <button onClick={handleSignOut} className="btn btn-secondary bg-red-600 dark:text-white hover:bg-red-700">Log Out</button>
+                                </div>
                             </div>
                             :
                             <div className="flex gap-3">
