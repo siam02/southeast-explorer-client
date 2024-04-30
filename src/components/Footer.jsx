@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { IoMdMail } from "react-icons/io";
+import { IoCall } from "react-icons/io5";
+
 
 const Footer = () => {
 
@@ -26,6 +29,16 @@ const Footer = () => {
                     <div className="text-white">
                         <h2 className="text-3xl font-black">Southeast Explorer</h2>
                         <p className="max-w-xl mt-4 text-slate-300">Southeast Explorer is your gateway to discovering the wonders of Southeast Asia, offering curated guides and insights into the region&apos;s rich culture, stunning landscapes, and vibrant cities.</p>
+                        <div className="mt-6">
+                            <div className="flex mb-2 gap-2 items-center">
+                                <IoMdMail />
+                                <p>info@example.com</p>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <IoCall />
+                                <p>+8801234567891</p>
+                            </div>
+                        </div>
                     </div>
                     <div className="text-gray-800 flex gap-4 flex-wrap md:justify-right justify-between">
                         <div className="">
@@ -63,7 +76,7 @@ const Footer = () => {
                                 Countries
                             </div>
                             {
-                                countries.map(country => <Link to={`/country/${country._id}`} key={country._id} className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700"> { country.country_Name } </Link> )
+                                countries.map(country => <Link to={`/country/${country._id}`} key={country._id} className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700"> {country.country_Name} </Link>)
                             }
                         </div>
 
