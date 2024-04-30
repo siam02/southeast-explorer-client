@@ -11,7 +11,7 @@ const TouristsSpotCard = ({ spot, showImage, showCountryName, showTotalVisitor, 
                     ''
             }
             <div className="p-4 flex flex-col h-full">
-                <div className='flex justify-between md:flex-row flex-col gap-4'>
+                <div className='flex justify-between gap-2 mb-2'>
                     <h3 className="text-lg font-semibold">{spot.tourists_spot_name}</h3>
                     <span className='text-lg font-bold'>${spot.average_cost}</span>
                 </div>

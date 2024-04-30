@@ -50,10 +50,10 @@ const Home = () => {
                             navigation={true}
                             modules={[Navigation]}
                             loop={true}
-                            className="rounded-xl w-full"
+                            className="rounded-xl"
                         >
                             {
-                                spots.map(spot => <SwiperSlide key={spot._id} className="w-full"><img src={spot.image} className="rounded-xl w-full" alt="" /></SwiperSlide>)
+                                spots.map(spot => <SwiperSlide key={spot._id} className="rounded-xl"><img src={spot.image} className="rounded-xl" alt="" /></SwiperSlide>)
                             }
                         </Swiper>
                     </div>
@@ -92,7 +92,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div>
-                        <iframe width="560" height="315" className="rounded-xl mx-auto" src="https://www.youtube.com/embed/teLKdgOOlhs?si=wqpBDDZaGgrXzvJz" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                        <iframe height="315" className="rounded-xl mx-auto w-full" src="https://www.youtube.com/embed/teLKdgOOlhs?si=wqpBDDZaGgrXzvJz" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                     </div>
                 </div>
             </div>
