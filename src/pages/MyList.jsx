@@ -76,8 +76,8 @@ const MyList = () => {
                             ) : (
                                 <div className="overflow-x-auto">
                                     <table className="table table-zebra">
-                                        <thead className="bg-white">
-                                            <tr className="text-gray-900" >
+                                        <thead className="bg-white dark:bg-slate-950">
+                                            <tr className="text-gray-900 dark:text-gray-400" >
                                                 <th className="text-left py-2">Tourist Spot</th>
                                                 <th className="text-left py-2">Location</th>
                                                 <th className="text-left py-2">Average Cost</th>
@@ -91,8 +91,8 @@ const MyList = () => {
                                                     <td className="py-2">{spot.location}</td>
                                                     <td className="py-2">${spot.average_cost}</td>
                                                     <td className="py-2">
-                                                        <Link to={`/update-tourists-spot/${spot._id}`} className="text-indigo-600 hover:text-indigo-700 mr-2">Update</Link>
-                                                        <button onClick={() => handleDelete(spot._id)} className="text-red-600 hover:text-red-700">Delete</button>
+                                                        <Link to={`/update-tourists-spot/${spot._id}`} className="text-indigo-600 dark:text-indigo-400 dark:hover:text-indigo-500 hover:text-indigo-700 mr-2">Update</Link>
+                                                        <button onClick={() => handleDelete(spot._id)} className="text-red-600 dark:text-red-400 dark:hover:text-red-500 hover:text-red-700">Delete</button>
                                                     </td>
                                                 </tr>
                                             )}

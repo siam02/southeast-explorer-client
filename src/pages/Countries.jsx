@@ -70,8 +70,8 @@ const Countries = () => {
                                 <tr key={country._id}>
                                     <td className="py-2">{country.country_Name}</td>
                                     <td className="py-2 text-center">
-                                        <Link to={`/update-country/${country._id}`} className="text-indigo-600 hover:text-indigo-700 mr-2">Update</Link>
-                                        <button onClick={() => handleDelete(country._id)} className="text-red-600 hover:text-red-700">Delete</button>
+                                        <Link to={`/update-country/${country._id}`} className="text-indigo-600 dark:text-indigo-400 dark:hover:text-indigo-500 hover:text-indigo-700 mr-2">Update</Link>
+                                        <button onClick={() => handleDelete(country._id)} className="text-red-600 dark:text-red-400 dark:hover:text-red-500 hover:text-red-700">Delete</button>
                                     </td>
                                 </tr>
                             )}

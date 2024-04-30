@@ -78,18 +78,18 @@ const UpdateTouristsSpot = () => {
     }, [])
 
     return (
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="px-4 py-8">
             <Helmet>
                 <title>Update Tourists Spot - {tourists_spot_name} - {siteName}</title>
             </Helmet>
             <h2 className="text-3xl font-bold mb-4">Update Tourists Spot: {tourists_spot_name}</h2>
             <div className="mb-4">
-                <img src={spotImage} alt="" className="w-full" />
+                <img src={spotImage} alt="" className="w-full rounded-xl" />
             </div>
             <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label htmlFor="image" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="image" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Image (URL)
                         </label>
                         <input
@@ -98,11 +98,11 @@ const UpdateTouristsSpot = () => {
                             type="text"
                             required
                             defaultValue={image}
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                            className="mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md w-full"
                         />
                     </div>
                     <div>
-                        <label htmlFor="tourists_spot_name" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="tourists_spot_name" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Tourists Spot Name
                         </label>
                         <input
@@ -111,11 +111,11 @@ const UpdateTouristsSpot = () => {
                             type="text"
                             required
                             defaultValue={tourists_spot_name}
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                            className="mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md w-full"
                         />
                     </div>
                     <div>
-                        <label htmlFor="country_Name" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="country_Name" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Country Name
                         </label>
                         {
@@ -126,7 +126,7 @@ const UpdateTouristsSpot = () => {
                                     name="country_Name"
                                     type="text"
                                     required
-                                    className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                                    className="mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md w-full"
                                 >
                                     {
                                         countries.map(country => <option selected={country.country_Name === country_Name ? true : false} value={country.country_Name} key={country._id}>{country.country_Name}</option>)
@@ -135,7 +135,7 @@ const UpdateTouristsSpot = () => {
                         }
                     </div>
                     <div>
-                        <label htmlFor="location" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="location" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Location
                         </label>
                         <input
@@ -144,11 +144,11 @@ const UpdateTouristsSpot = () => {
                             type="text"
                             required
                             defaultValue={location}
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                            className="mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md w-full"
                         />
                     </div>
                     <div className="md:col-span-2">
-                        <label htmlFor="short_description" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="short_description" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Short Description
                         </label>
                         <textarea
@@ -156,11 +156,11 @@ const UpdateTouristsSpot = () => {
                             name="short_description"
                             required
                             defaultValue={short_description}
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                            className="mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md w-full"
                         ></textarea>
                     </div>
                     <div>
-                        <label htmlFor="average_cost" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="average_cost" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Average Cost
                         </label>
                         <input
@@ -169,11 +169,11 @@ const UpdateTouristsSpot = () => {
                             type="number"
                             required
                             defaultValue={average_cost}
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                            className="mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md w-full"
                         />
                     </div>
                     <div>
-                        <label htmlFor="seasonality" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="seasonality" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Seasonality
                         </label>
                         <input
@@ -182,11 +182,11 @@ const UpdateTouristsSpot = () => {
                             type="text"
                             required
                             defaultValue={seasonality}
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                            className="mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md w-full"
                         />
                     </div>
                     <div>
-                        <label htmlFor="travel_time" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="travel_time" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Travel Time
                         </label>
                         <input
@@ -195,11 +195,11 @@ const UpdateTouristsSpot = () => {
                             type="text"
                             required
                             defaultValue={travel_time}
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                            className="mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md w-full"
                         />
                     </div>
                     <div>
-                        <label htmlFor="totalVisitorsPerYear" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="totalVisitorsPerYear" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Total Visitors Per Year
                         </label>
                         <input
@@ -208,7 +208,7 @@ const UpdateTouristsSpot = () => {
                             type="text"
                             required
                             defaultValue={totalVisitorsPerYear}
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                            className="mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md w-full"
                         />
                     </div>
                 </div>

@@ -59,7 +59,7 @@ const AddCountry = () => {
             <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                        <label htmlFor="image" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="image" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Image (URL)
                         </label>
                         <input
@@ -67,11 +67,11 @@ const AddCountry = () => {
                             name="image"
                             type="text"
                             required
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                            className="mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md w-full"
                         />
                     </div>
                     <div>
-                        <label htmlFor="country_Name" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="country_Name" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Country Name
                         </label>
                         <input
@@ -79,18 +79,18 @@ const AddCountry = () => {
                             name="country_Name"
                             type="text"
                             required
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                            className="mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md w-full"
                         />
                     </div>
                     <div className="md:col-span-2">
-                        <label htmlFor="short_description" className="block text-sm font-medium text-gray-700">
+                        <label htmlFor="short_description" className="block text-sm font-medium text-gray-700 dark:text-gray-400">
                             Short Description
                         </label>
                         <textarea
                             id="short_description"
                             name="short_description"
                             required
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                            className="mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md w-full"
                         ></textarea>
                     </div>
                 </div>
