@@ -26,7 +26,7 @@ const Footer = () => {
 
     return (
         <div>
-            <footer className="bg-gray-800 md:p-10 p-5 sm:mt-10">
+            <footer className="bg-gray-800 dark:bg-slate-950 md:p-10 p-5 sm:mt-10">
                 <div className="flex lg:flex-row flex-col  justify-between gap-12">
                     <div className="text-white">
                         <h2 className="text-3xl font-black">Southeast Explorer</h2>

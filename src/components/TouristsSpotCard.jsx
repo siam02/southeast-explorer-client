@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const TouristsSpotCard = ({ spot, showImage, showCountryName, showTotalVisitor, showTravelTime, showShortDescription }) => {
     return (
-        <div className="bg-white flex flex-col shadow-md rounded-md">
+        <div className="bg-white dark:bg-slate-950 flex flex-col shadow-md rounded-md">
             {
                 showImage ?
                     <img src={spot.image} alt={spot.tourists_spot_name} className="w-full h-48 object-cover rounded-t-md" />
@@ -17,7 +17,7 @@ const TouristsSpotCard = ({ spot, showImage, showCountryName, showTotalVisitor, 
                 </div>
                 {
                     showCountryName ?
-                        <p className="text-base text-gray-600">{spot.location}, {spot.country_Name}</p>
+                        <p className="text-base">{spot.location}, {spot.country_Name}</p>
                         :
                         ""
                 }
@@ -26,7 +26,7 @@ const TouristsSpotCard = ({ spot, showImage, showCountryName, showTotalVisitor, 
                     showShortDescription && <p className='text-sm my-4'>{spot.short_description}</p>
                 }
 
-                <div className='grow text-sm text-gray-600'>
+                <div className='grow text-sm text-gray-600 dark:text-gray-400'>
                     {
                         showTotalVisitor && showTravelTime ?
                             <div>
@@ -49,7 +49,7 @@ const TouristsSpotCard = ({ spot, showImage, showCountryName, showTotalVisitor, 
 
                 </div>
                 <div className="text-right mt-2">
-                    <Link to={`/tourists-spot/${spot._id}`} className="text-indigo-600 hover:text-indigo-700 font-medium">
+                    <Link to={`/tourists-spot/${spot._id}`} className="text-indigo-600 dark:text-indigo-400 dark:hover:text-indigo-500 hover:text-indigo-700 font-medium">
                         View Details
                     </Link>
                 </div>

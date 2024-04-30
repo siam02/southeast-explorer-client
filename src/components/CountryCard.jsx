@@ -5,7 +5,7 @@ const CountryCard = ({ country }) => {
     return (
         <Link to={`/country/${_id}`} className="card bg-base-100 shadow-xl image-full">
             <figure><img src={image} alt="Shoes" /></figure>
-            <div className="card-body text-center justify-center">
+            <div className="card-body text-center dark:!text-neutral-200 justify-center">
                 <h2 className="card-title justify-center text-3xl">{country_Name}</h2>
                 <p className='grow-0'>{short_description}</p>
             </div>
