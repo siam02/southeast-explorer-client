@@ -65,7 +65,7 @@ const Home = () => {
                     <p className="max-w-3xl mt-4 mx-auto">Explore a myriad of captivating destinations with our All Tourist Spots section, showcasing the diverse beauty of Southeast Asia and beyond.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {spots.map((spot) => <TouristsSpotCard key={spot._id} spot={spot} ></TouristsSpotCard>)}
+                    {spots.map((spot) => <TouristsSpotCard key={spot._id} spot={spot} showImage={true} showTravelTime={true} showShortDescription={true} showCountryName={true} showTotalVisitor={true}></TouristsSpotCard>)}
                 </div>
             </div>
             <div className="my-28">

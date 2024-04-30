@@ -42,7 +42,7 @@ const AllTouristsSpot = () => {
                 </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {touristsSpots.map((spot) => <TouristsSpotCard key={spot._id} spot={spot} ></TouristsSpotCard>)}
+                {touristsSpots.map((spot) => <TouristsSpotCard key={spot._id} spot={spot} showImage={true} showTravelTime={true} showShortDescription={false} showCountryName={false} showTotalVisitor={true} ></TouristsSpotCard>)}
             </div>
         </div>
     );

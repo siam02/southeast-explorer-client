@@ -1,13 +1,16 @@
 import { useLoaderData } from "react-router-dom";
 import TouristsSpotCard from "../components/TouristsSpotCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
+import { SiteDetailsContext } from "../providers/SiteDetailsProvider";
 
 const CountryDetails = () => {
 
     const country = useLoaderData();
 
     const { country_Name, short_description, image } = country;
+    const { siteName } = useContext(SiteDetailsContext);
 
     const [spots, setSpots] = useState([]);
 
@@ -25,6 +28,9 @@ const CountryDetails = () => {
 
     return (
         <div className="my-16">
+            <Helmet>
+                <title>{country_Name} - {siteName}</title>
+            </Helmet>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div className="flex flex-col justify-center">
                     <h1 className="text-4xl mb-4 font-black">{country_Name}</h1>
@@ -44,7 +50,7 @@ const CountryDetails = () => {
                         <p className="text-lg text-red-600">No Tourists Spots are available for this Country</p>
                         :
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            {spots.map((spot) => <TouristsSpotCard key={spot._id} spot={spot} ></TouristsSpotCard>)}
+                            {spots.map((spot) => <TouristsSpotCard key={spot._id} spot={spot} showImage={false} showTravelTime={false} showShortDescription={true} showCountryName={true} showTotalVisitor={false}></TouristsSpotCard>)}
                         </div>
                 }
             </div>
