@@ -12,6 +12,7 @@ import UpdateTouristsSpot from "../pages/UpdateTouristsSpot";
 import Countries from "../pages/Countries";
 import AddCountry from "../pages/AddCountry";
 import UpdateCountry from "../pages/UpdateCountry";
+import TouristsSpotDetails from "../pages/TouristsSpotDetails";
 
 const router = createBrowserRouter([
     {
@@ -63,6 +64,11 @@ const router = createBrowserRouter([
                 path:'/update-country/:id',
                 element:<PrivateRoutes><UpdateCountry></UpdateCountry></PrivateRoutes>,
                 loader: ({params}) => fetch(`http://localhost:5000/country/${params.id}`)
+            },
+            {
+                path:'/tourists-spot/:id',
+                element:<PrivateRoutes><TouristsSpotDetails></TouristsSpotDetails></PrivateRoutes>,
+                loader: ({params}) => fetch(`http://localhost:5000/tourists-spot/${params.id}`)
             }
         ]
     }

@@ -102,7 +102,6 @@ const Home = () => {
                     <p className="max-w-3xl mt-4 mx-auto">Choose us for your next adventure because we offer expert guides, customized experiences, and prioritize your safety every step of the way.</p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-                    {/* Reason 1 */}
                     <div className="bg-white rounded-lg shadow-md overflow-hidden">
                         <div className="p-6">
                             <svg className="h-12 w-12 text-indigo-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -112,7 +111,6 @@ const Home = () => {
                             <p className="text-gray-600">Our experienced guides are passionate about sharing their knowledge and ensuring you have a memorable journey.</p>
                         </div>
                     </div>
-                    {/* Reason 2 */}
                     <div className="bg-white rounded-lg shadow-md overflow-hidden">
                         <div className="p-6">
                             <svg className="h-12 w-12 text-indigo-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -122,7 +120,6 @@ const Home = () => {
                             <p className="text-gray-600">We tailor each experience to your preferences, ensuring every moment is personalized and unforgettable.</p>
                         </div>
                     </div>
-                    {/* Reason 3 */}
                     <div className="bg-white rounded-lg shadow-md overflow-hidden">
                         <div className="p-6">
                             <svg className="h-12 w-12 text-indigo-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
