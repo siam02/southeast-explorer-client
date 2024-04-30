@@ -10,19 +10,23 @@ const AllTouristsSpot = () => {
     const loadedTouristsSpot = useLoaderData();
     const [touristsSpots, setTouristsSpots] = useState(loadedTouristsSpot);
     const { siteName } = useContext(SiteDetailsContext);
+    const [loading, setLoading] = useState(false);
 
 
 
     const handleSort = (sort) => {
+        setLoading(true);
         fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/tourists-spot?sortOrder=${sort}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            setTouristsSpots(data);
-        })
-        .catch(error => {
-            toast.error(error);
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setTouristsSpots(data);
+                setLoading(false);
+            })
+            .catch(error => {
+                toast.error(error);
+                setLoading(false);
+            })
     }
 
     return (
@@ -41,9 +45,13 @@ const AllTouristsSpot = () => {
                     </details>
                 </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {touristsSpots.map((spot) => <TouristsSpotCard key={spot._id} spot={spot} showImage={true} showTravelTime={true} showShortDescription={false} showCountryName={false} showTotalVisitor={true} ></TouristsSpotCard>)}
-            </div>
+            {
+                loading ? <div className="flex justify-center my-10"><span className="loading loading-lg loading-spinner text-primary"></span></div>
+                    :
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {touristsSpots.map((spot) => <TouristsSpotCard key={spot._id} spot={spot} showImage={true} showTravelTime={true} showShortDescription={false} showCountryName={false} showTotalVisitor={true} ></TouristsSpotCard>)}
+                    </div>
+            }
         </div>
     );
 };

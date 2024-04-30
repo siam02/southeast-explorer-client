@@ -8,12 +8,14 @@ import { IoCall } from "react-icons/io5";
 const Footer = () => {
 
     const [countries, setCountries] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/country`)
             .then(res => res.json())
             .then(data => {
                 setCountries(data);
+                setLoading(false);
             })
             .catch(error => {
                 console.log(error);
@@ -76,7 +78,15 @@ const Footer = () => {
                                 Countries
                             </div>
                             {
-                                countries.map(country => <Link to={`/country/${country._id}`} key={country._id} className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700"> {country.country_Name} </Link>)
+                                loading ? <div className="flex justify-center my-10"><span className="loading loading-lg loading-spinner text-indigo-600"></span></div>
+
+                                    :
+
+                                    <div>
+                                        {
+                                            countries.map(country => <Link to={`/country/${country._id}`} key={country._id} className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700"> {country.country_Name} </Link>)
+                                        }
+                                    </div>
                             }
                         </div>
 

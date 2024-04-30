@@ -15,6 +15,7 @@ const UpdateTouristsSpot = () => {
 
     const [spotImage, setSpotImage] = useState(image);
     const [countries, setCountries] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -68,6 +69,7 @@ const UpdateTouristsSpot = () => {
             .then(res => res.json())
             .then(data => {
                 setCountries(data);
+                setLoading(false);
             })
             .catch(error => {
                 console.log(error);
@@ -116,17 +118,21 @@ const UpdateTouristsSpot = () => {
                         <label htmlFor="country_Name" className="block text-sm font-medium text-gray-700">
                             Country Name
                         </label>
-                        <select
-                            id="country_Name"
-                            name="country_Name"
-                            type="text"
-                            required
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-                        >
-                            {
-                                countries.map(country => <option selected={ country.country_Name === country_Name ? true : false} value={country.country_Name} key={country._id}>{ country.country_Name }</option>)
-                            }
-                        </select>
+                        {
+                            loading ? <span className="loading loading-spinner text-indigo-600 loading-xs"></span>
+                                :
+                                <select
+                                    id="country_Name"
+                                    name="country_Name"
+                                    type="text"
+                                    required
+                                    className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                                >
+                                    {
+                                        countries.map(country => <option selected={country.country_Name === country_Name ? true : false} value={country.country_Name} key={country._id}>{country.country_Name}</option>)
+                                    }
+                                </select>
+                        }
                     </div>
                     <div>
                         <label htmlFor="location" className="block text-sm font-medium text-gray-700">

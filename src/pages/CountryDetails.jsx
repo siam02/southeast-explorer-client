@@ -11,6 +11,7 @@ const CountryDetails = () => {
 
     const { country_Name, short_description, image } = country;
     const { siteName } = useContext(SiteDetailsContext);
+    const [loading, setLoading] = useState(true);
 
     const [spots, setSpots] = useState([]);
 
@@ -19,6 +20,7 @@ const CountryDetails = () => {
             .then(res => res.json())
             .then(data => {
                 setSpots(data);
+                setLoading(false);
             })
             .catch(error => {
                 console.log(error);
@@ -46,11 +48,17 @@ const CountryDetails = () => {
                     <p className="max-w-3xl mt-4 mx-auto">Explore all tourists spots located in {country_Name} with stunning sceneries! Book and enjoy the awesome beauty of our world</p>
                 </div>
                 {
-                    spots.length === 0 ?
-                        <p className="text-lg text-red-600">No Tourists Spots are available for this Country</p>
+                    loading ? <div className="flex justify-center my-10"><span className="loading loading-lg loading-spinner text-indigo-600"></span></div>
                         :
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            {spots.map((spot) => <TouristsSpotCard key={spot._id} spot={spot} showImage={false} showTravelTime={false} showShortDescription={true} showCountryName={true} showTotalVisitor={false}></TouristsSpotCard>)}
+                        <div>
+                            {
+                                spots.length === 0 ?
+                                    <p className="text-lg text-red-600">No Tourists Spots are available for this Country</p>
+                                    :
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                        {spots.map((spot) => <TouristsSpotCard key={spot._id} spot={spot} showImage={false} showTravelTime={false} showShortDescription={true} showCountryName={true} showTotalVisitor={false}></TouristsSpotCard>)}
+                                    </div>
+                            }
                         </div>
                 }
             </div>

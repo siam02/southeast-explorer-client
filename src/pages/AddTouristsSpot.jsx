@@ -11,6 +11,7 @@ const AddTouristsSpot = () => {
     const { siteName } = useContext(SiteDetailsContext);
     const { user } = useContext(AuthContext);
     const [countries, setCountries] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -68,6 +69,7 @@ const AddTouristsSpot = () => {
             .then(res => res.json())
             .then(data => {
                 setCountries(data);
+                setLoading(false);
             })
             .catch(error => {
                 console.log(error);
@@ -111,17 +113,21 @@ const AddTouristsSpot = () => {
                         <label htmlFor="country_Name" className="block text-sm font-medium text-gray-700">
                             Country Name
                         </label>
-                        <select
-                            id="country_Name"
-                            name="country_Name"
-                            type="text"
-                            required
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-                        >
-                            {
-                                countries.map(country => <option value={country.country_Name} key={country._id}>{ country.country_Name }</option>)
-                            }
-                        </select>
+                        {
+                            loading ? <span className="loading text-indigo-600 loading-spinner loading-xs"></span>
+                                :
+                                <select
+                                    id="country_Name"
+                                    name="country_Name"
+                                    type="text"
+                                    required
+                                    className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                                >
+                                    {
+                                        countries.map(country => <option value={country.country_Name} key={country._id}>{country.country_Name}</option>)
+                                    }
+                                </select>
+                        }
                     </div>
                     <div>
                         <label htmlFor="location" className="block text-sm font-medium text-gray-700">

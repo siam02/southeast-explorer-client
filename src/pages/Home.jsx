@@ -19,12 +19,14 @@ const Home = () => {
     const { siteName } = useContext(SiteDetailsContext);
     const spots = useLoaderData();
     const [countries, setCountries] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`https://southest-explorer-server-12zvd66g0.vercel.app/country`)
             .then(res => res.json())
             .then(data => {
                 setCountries(data);
+                setLoading(false);
             })
             .catch(error => {
                 console.log(error);
@@ -39,13 +41,13 @@ const Home = () => {
                 <title>Home - {siteName}</title>
             </Helmet>
             <div className="hero my-28">
-                <div className="hero-content grid grid-cols-1 lg:grid-cols-2">
-                    <div className="w-full">
+                <div className="hero-content gap-10 !p-0 grid grid-cols-1 lg:grid-cols-2">
+                    <div className="">
                         <h1 className="text-5xl font-bold">Explore <span className="text-red-600"><Typewriter words={['Southeast Asia', 'Bangladesh', 'Thailand', 'Malaysia', 'Vietnam', 'Cambodia']} loop={0} /></span></h1>
                         <p className="py-6">Embark on an unforgettable journey through the vibrant cultures and breathtaking landscapes of Southeast Asia.</p>
                         <button className="btn btn-primary">Get Started</button>
                     </div>
-                    <div className="w-full flex">
+                    <div className="flex">
                         <Swiper
                             navigation={true}
                             modules={[Navigation]}
@@ -73,9 +75,15 @@ const Home = () => {
                     <h2 className="text-4xl font-bold">Countries</h2>
                     <p className="max-w-3xl mt-4 mx-auto">Explore diverse cultures and stunning landscapes with our All Countries section, showcasing the best of Southeast Asia and beyond.</p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {countries.map((country) => <CountryCard key={country._id} country={country} ></CountryCard>)}
-                </div>
+                {
+                    loading ? <div className="flex justify-center my-10"><span className="loading loading-lg loading-spinner text-indigo-600"></span></div>
+                        :
+                        <div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {countries.map((country) => <CountryCard key={country._id} country={country} ></CountryCard>)}
+                            </div>
+                        </div>
+                }
             </div>
             <div className="my-28">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
