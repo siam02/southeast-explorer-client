@@ -20,6 +20,41 @@ Welcome to Southeast Explorer, your go-to platform for exploring the captivating
 - **My List**: View and manage your personal list of added tourist spots in a convenient tabular format.
 
 
-## Choosen Category
+## Technology Used
 
-Southeast Asia
+- ReactJS
+- HTML
+- CSS
+- JavaScript
+- TailwindCSS
+- Firebase
+- DaisyUI
+- Vite
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/siam02/southeast-explorer-client.git
+
+2. Install dependencies:
+```bash
+cd southeast-explorer
+npm install
+
+3. Create a .env file in the root directory and add your Firebase config keys:
+
+```bash
+REACT_APP_FIREBASE_API_KEY=your-firebase-api-key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
+REACT_APP_FIREBASE_PROJECT_ID=your-firebase-project-id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your-firebase-storage-bucket
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-firebase-messaging-sender-id
+REACT_APP_FIREBASE_APP_ID=your-firebase-app-id
+
+4. Start the development server:
+ ```bash
+npm run dev
+
+5. Visit http://localhost:3000 in your browser to view the application.
